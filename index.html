@@ -1,1 +1,69 @@
-__PLACEHOLDER__
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+  <title>Ohmstraße 63 | HausHoch Consult</title>
+  <style>
+    html,body{margin:0;min-height:100%;font-family:"Aptos Narrow","Arial Narrow",Arial,sans-serif;background:#f7f2eb;color:#171310;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
+    .loader{max-width:520px}.mark{font-family:Georgia,serif;letter-spacing:.16em;text-transform:uppercase;font-size:12px;margin-bottom:14px}.bar{height:2px;background:linear-gradient(90deg,#7f241f,#a29793);animation:load 1.4s ease-in-out infinite;border-radius:999px}@keyframes load{0%{transform:scaleX(.15);opacity:.45}50%{transform:scaleX(1);opacity:1}100%{transform:scaleX(.15);opacity:.45}}
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="mark">HausHoch Consult</div>
+    <div class="bar"></div>
+  </div>
+<script>
+(async function(){
+  const source = 'https://raw.githubusercontent.com/HHC069/HausHausConsult-Ohmstr./aed994a3cc2589cc895aaeaa658d8e5c4fdb16cc/index.html';
+  const revisionCss = `
+<style id="hhc-live-revision-2026-05-23">
+/* Live revision: title cleanup, larger team images, calm 3D logo/slogan, cleaner PDF print output */
+.logo-float{filter:drop-shadow(0 18px 24px rgba(44,36,31,.18))!important;transform-style:preserve-3d!important;animation:hhcLogoDepth 8.5s ease-in-out infinite!important;}
+@keyframes hhcLogoDepth{0%,100%{transform:perspective(1100px) rotateY(-5deg) rotateX(2deg) translateY(0)}50%{transform:perspective(1100px) rotateY(5deg) rotateX(-1deg) translateY(-8px)}}
+.intro .wrap::before,.intro .wrap::after{display:none!important;content:none!important;}
+.intro-claim,.gate-claim,footer .claim{display:flex!important;justify-content:center!important;align-items:center!important;transform-style:preserve-3d!important;text-shadow:0 1px 0 rgba(255,255,255,.54),0 12px 26px rgba(41,31,27,.14)!important;animation:hhcSloganDepth 9s ease-in-out infinite!important;}
+@keyframes hhcSloganDepth{0%,100%{transform:perspective(900px) rotateX(0deg) rotateY(-1.8deg) translateY(0)}50%{transform:perspective(900px) rotateX(1.2deg) rotateY(1.8deg) translateY(-3px)}}
+.team-collage{grid-template-columns:repeat(7,72px)!important;gap:12px!important;width:min(680px,100%)!important;padding:20px 22px!important;}
+.team-photo{width:72px!important;height:72px!important;border-radius:19px!important;}
+.pdf-btn::before{content:'PDF Layout';font-size:9px;letter-spacing:.105em;}
+.pdf-btn{font-size:0!important;}
+@media(max-width:720px){.team-collage{grid-template-columns:repeat(4,62px)!important;gap:9px!important;width:min(340px,100%)!important}.team-photo{width:62px!important;height:62px!important;border-radius:17px!important}.pdf-btn::before{content:'PDF';font-size:8px!important}}
+@page{size:A4 landscape;margin:12mm;}
+@media print{
+  html,body{background:#fbf7f1!important;overflow:visible!important;}
+  .nav,.progress,.password-gate{display:none!important;}
+  body.auth-locked .page,body.auth-locked .nav,body.auth-locked .progress{visibility:visible!important;}
+  .section{min-height:auto!important;break-after:page!important;page-break-after:always!important;padding:16mm 10mm 14mm!important;overflow:visible!important;background:#fbf7f1!important;color:#171310!important;}
+  .section.dark{background:linear-gradient(145deg,#6c625d,#a29793)!important;color:#fffaf4!important;}
+  .section.tight,footer{break-after:auto!important;page-break-after:auto!important;}
+  .wrap{width:100%!important;max-width:100%!important;}
+  .grid,.grid2,.grid3,.grid4,.asset-grid,.market-map,.location-graphic,.competition-band,.timeline,.floorplan-row{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10mm!important;align-items:start!important;}
+  .grid3,.grid4,.price-stages{grid-template-columns:repeat(3,1fr)!important;}
+  h1{font-size:34pt!important;}h2{font-size:24pt!important;}h3{font-size:13pt!important;}p,li,td,th{font-size:9.2pt!important;line-height:1.35!important;}
+  .lead{font-size:11pt!important;}.metric{font-size:22pt!important;}.card,.glass,.method-card,.price-stage,.price-bridge{box-shadow:none!important;backdrop-filter:none!important;overflow:visible!important;}
+  img{max-height:95mm!important;object-fit:cover!important;}.floorplan-card img{object-fit:contain!important;background:#fff!important;}
+  .table{table-layout:fixed!important;width:100%!important;}.table th,.table td{padding:6px!important;overflow-wrap:anywhere!important;}
+  .reveal{opacity:1!important;transform:none!important;}
+  .team-collage{grid-template-columns:repeat(7,42px)!important;width:auto!important;box-shadow:none!important}.team-photo{width:42px!important;height:42px!important;}
+}
+</style>`;
+  try {
+    let html = await fetch(source, {cache:'no-store'}).then(r => { if(!r.ok) throw new Error('Quelle nicht erreichbar'); return r.text(); });
+    html = html.replaceAll('Exposé | Eigentumswohnung in Frankfurt-Bockenheim / City West','Eigentumswohnung in Frankfurt-Bockenheim / City West');
+    html = html.replaceAll('Exposé | ', '');
+    html = html.replaceAll('PDF herunterladen','PDF Layout');
+    html = html.replaceAll('PDF exportieren','PDF Layout');
+    html = html.replace('</head>', revisionCss + '\n</head>');
+    document.open();
+    document.write(html);
+    document.close();
+  } catch (error) {
+    document.body.innerHTML = '<main style="max-width:640px"><h1 style="font-family:Georgia,serif">Seite konnte nicht geladen werden.</h1><p>Bitte die Seite neu laden. Technischer Hinweis: '+ String(error.message || error) +'</p></main>';
+  }
+})();
+</script>
+</body>
+</html>
