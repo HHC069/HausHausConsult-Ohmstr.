@@ -1,0 +1,25 @@
+{
+  "status": "final_launch_ready_review",
+  "password_gate": true,
+  "password_default": "HHC-Ohm63!",
+  "password_hash_sha256": "fc534e4e43c2fb81238325a153d8dd77bef75fc5c23fbb5aac49915fef24c2eb",
+  "client_side_password_note": "GitHub Pages ist statisch; dieser Schutz ist eine Zugangshuerde, kein echter Serversicherheitsschutz.",
+  "ci_fonts_declared": true,
+  "font_files_included": false,
+  "object_visual_refs": 13,
+  "all_asset_refs": 26,
+  "missing_asset_refs": [],
+  "selected_gallery_images": [
+    "01_wohn_essen_01.jpg",
+    "03_wohn_essen_03.jpg",
+    "04_kueche_01.jpg",
+    "06_balkon_sued.jpg",
+    "07_balkon_nordwest.jpg",
+    "08_zimmer_01.jpg",
+    "14_bad_badewanne.jpg",
+    "21_duplex_stellplatz.jpg"
+  ],
+  "mobile_overflow_controls": true,
+  "no_text_logo_detected": true,
+  "robots_noindex": true
+}

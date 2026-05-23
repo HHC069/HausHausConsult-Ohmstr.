@@ -1,0 +1,18 @@
+{
+  "package": "Ohmstr_63_Frankfurt_Einheit_033_GITHUB_LAUNCH_FINAL",
+  "index_html": true,
+  "inline_html": true,
+  "assets_dir": true,
+  "nojekyll": true,
+  "robots_txt": true,
+  "404_html": true,
+  "readme": true,
+  "deploy_notes": true,
+  "password_overlay_present": true,
+  "ci_fonts_referenced": true,
+  "local_asset_references": 26,
+  "missing_local_references": [],
+  "font_files_removed": true,
+  "noindex_present": true,
+  "robots_blocks_indexing": true
+}
