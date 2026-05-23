@@ -1,0 +1,18 @@
+{
+  "status": "final_landingpage_ready",
+  "password": "haushochconsult",
+  "password_sha256": "3dd670d9a87def5e23b20e725db6d53d95fe045761ee141ea2a3151616455626",
+  "client_side_gate": true,
+  "note": "Clientseitiger GitHub-Pages-Schutz, keine echte Server-Authentifizierung.",
+  "ci_fonts_referenced": {
+    "headings": "Bodoni Moda 11pt",
+    "body": "Aptos Narrow"
+  },
+  "font_files_included": false,
+  "object_images_curated_visible": "desktop: 6 gallery images, mobile: 4 gallery images plus hero/floorplans",
+  "image_references": 26,
+  "missing_image_references": [],
+  "mobile_overflow_guard": true,
+  "noindex": true,
+  "ready_for_review": true
+}
