@@ -1,0 +1,136 @@
+/*
+  HausHoch Consult - Animation Layer only
+  Purpose: add motion/3D/scroll effects without changing existing website design.
+  This file intentionally does NOT define brand colors, font families, sizes, margins, grids, backgrounds or layout.
+*/
+
+:root {
+  --hhc-motion-distance: 18px;
+  --hhc-motion-duration: 820ms;
+  --hhc-motion-ease: cubic-bezier(.22, .61, .36, 1);
+  --hhc-tilt-x: 0deg;
+  --hhc-tilt-y: 0deg;
+  --hhc-tilt-z: 0px;
+  --hhc-parallax-y: 0px;
+}
+
+html.hhc-motion-ready {
+  scroll-behavior: smooth;
+}
+
+html.hhc-motion-ready body {
+  perspective: 1200px;
+}
+
+/* Scroll reveal: motion only, no visual redesign. */
+.hhc-reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--hhc-motion-distance), 0);
+  transition:
+    opacity var(--hhc-motion-duration) var(--hhc-motion-ease),
+    transform var(--hhc-motion-duration) var(--hhc-motion-ease),
+    filter var(--hhc-motion-duration) var(--hhc-motion-ease);
+  will-change: opacity, transform;
+}
+
+.hhc-reveal.hhc-in-view {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.hhc-reveal[data-hhc-reveal="left"] {
+  transform: translate3d(calc(var(--hhc-motion-distance) * -1), 0, 0);
+}
+
+.hhc-reveal[data-hhc-reveal="right"] {
+  transform: translate3d(var(--hhc-motion-distance), 0, 0);
+}
+
+.hhc-reveal[data-hhc-reveal="zoom"] {
+  transform: translate3d(0, 12px, 0) scale(.985);
+}
+
+.hhc-reveal.hhc-in-view[data-hhc-reveal="left"],
+.hhc-reveal.hhc-in-view[data-hhc-reveal="right"],
+.hhc-reveal.hhc-in-view[data-hhc-reveal="zoom"] {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Small stagger without layout changes. */
+.hhc-reveal:nth-of-type(2n) { transition-delay: 70ms; }
+.hhc-reveal:nth-of-type(3n) { transition-delay: 120ms; }
+.hhc-reveal:nth-of-type(4n) { transition-delay: 170ms; }
+
+/* 3D hover/gesture effect. Existing styling remains untouched. */
+.hhc-tilt {
+  transform-style: preserve-3d;
+  transition: transform 260ms ease, filter 260ms ease;
+  will-change: transform;
+}
+
+.hhc-tilt.hhc-tilt-active {
+  transform:
+    perspective(900px)
+    rotateX(var(--hhc-tilt-x))
+    rotateY(var(--hhc-tilt-y))
+    translateZ(var(--hhc-tilt-z));
+}
+
+/* Depth for direct child elements only while hovering; no design values changed. */
+.hhc-tilt.hhc-tilt-active > * {
+  transform: translateZ(18px);
+  transition: transform 260ms ease;
+}
+
+/* Parallax: applied only to images/media/hero-like elements selected by JS. */
+.hhc-parallax {
+  transform: translate3d(0, var(--hhc-parallax-y), 0);
+  will-change: transform;
+}
+
+/* Sticky header enhancement: motion only. */
+.hhc-nav-lift {
+  transition: transform 260ms ease;
+  will-change: transform;
+}
+
+.hhc-nav-lift.hhc-nav-hidden {
+  transform: translate3d(0, -110%, 0);
+}
+
+/* Optional fine scroll progress line. Disabled unless JS creates it. */
+.hhc-scroll-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: calc(var(--hhc-scroll-progress, 0) * 100%);
+  z-index: 2147483647;
+  background: currentColor;
+  opacity: .22;
+  pointer-events: none;
+  transform-origin: left center;
+}
+
+/* Respect accessibility and do not animate for users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html.hhc-motion-ready,
+  html.hhc-motion-ready * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hhc-reveal,
+  .hhc-reveal.hhc-in-view,
+  .hhc-tilt,
+  .hhc-tilt.hhc-tilt-active,
+  .hhc-parallax,
+  .hhc-nav-lift,
+  .hhc-nav-lift.hhc-nav-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hhc-scroll-progress { display: none !important; }
+}
